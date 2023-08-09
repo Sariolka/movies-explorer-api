@@ -16,7 +16,7 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } = process.env;
 const app = express();
 app.use(express.json());
 app.use(cors);
@@ -25,7 +25,7 @@ app.use(requestLogger);
 
 app.use(helmet());
 app.use(limiter);
-mongoose.connect('mongodb://localhost:27017/bitfilmsdb', { family: 4 });
+mongoose.connect(DB_URL, { family: 4 });
 
 app.use(router);
 app.use(errorLogger);
