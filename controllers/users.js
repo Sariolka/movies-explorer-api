@@ -56,7 +56,7 @@ const getUserInfo = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.status(OK).send(user);
+      res.status(OK).send({email: user.email, name: user.name});
     })
     .catch(next);
 };
@@ -69,7 +69,7 @@ const updateUserInfo = (req, res, next) => {
     { new: true, runValidators: true },
   )
     .then((user) => {
-      res.status(OK).send(user);
+      res.status(OK).send({ email: user.email, name: user.name });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
