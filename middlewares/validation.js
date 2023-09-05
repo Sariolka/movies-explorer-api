@@ -30,7 +30,7 @@ const validationCreateMovie =  celebrate({
     year:Joi.string().required(),
     description:Joi.string().required(),
     image:Joi.string().required(),
-    trailer:Joi.string().required(),
+    trailerLink:Joi.string().required(),
     nameRU:Joi.string().required(),
     nameEN:Joi.string().required(),
     thumbnail:Joi.string().required(),
