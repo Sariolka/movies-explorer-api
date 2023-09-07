@@ -42,7 +42,7 @@ const login = (req, res, next) => {
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
-      res.status(OK).send({ user.name, user.email, token });
+      res.status(OK).send({ email: user.email, name: user.name, token });
     })
     .catch(() => {
       throw new UnauthorizedError('Необходима авторизация');
