@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-const cors = require('./middlewares/cors');
+const cors = require('cors');
 const limiter = require('./middlewares/rateLimiter');
 const router = require('./routes');
 const error = require('./middlewares/error');
@@ -15,8 +15,18 @@ const { PORT = 3000, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } = process
 const app = express();
 app.use(express.json());
 app.use(limiter);
-app.use(cors);
 
+app.use(cors({
+  credentials: true,
+  origin: [
+  'localhost:3000',
+  'http://localhost:3000',
+  'https://localhost:3000',
+  'https://api.sariola.diploma.nomoreparties.co',
+  'http://api.sariola.diploma.nomoreparties.co',
+  'https://sariola.diploma.nomoreparties.co',
+  'http://sariola.diploma.nomoreparties.co'],
+}));
 app.use(requestLogger);
 
 app.use(helmet());
