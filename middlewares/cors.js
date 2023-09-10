@@ -3,9 +3,12 @@ const allowedCors = [
   'https://api.sariolka.students.nomoredomains.xyz',
   'http://sariolka.student.nomoredomains.xyz',
   'http://api.sariolka.students.nomoredomains.xyz',
-  'localhost:3003',
-  'http://localhost:3003',
-  'https://localhost:3003',
+  'localhost:3000',
+  'http://localhost:3000',
+  'https://localhost:3000',
+  'localhost:3001',
+  'http://localhost:3001',
+  'https://localhost:3001'
 ];
 
 const cors = (req, res, next) => {
