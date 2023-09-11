@@ -26,24 +26,24 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) { return validator.isUrl(v); },
-      message: 'Введите корректную ссылку',
+      validator: (v) => validator.isURL(v),
+      message: 'Введите корректную ссылку.'
     },
   },
   trailerLink: {
     type: String,
     required: true,
     validate: {
-      validator(v) { return validator.isUrl(v); },
-      message: 'Введите корректную ссылку',
+      validator: (v) => validator.isURL(v),
+      message: 'Введите корректную ссылку.'
     },
   },
   thumbnail: {
     type: String,
     required: true,
     validate: {
-      validator(v) { return validator.isUrl(v); },
-      message: 'Введите корректную ссылку',
+      validator: (v) => validator.isURL(v),
+      message: 'Введите корректную ссылку.'
     },
   },
   owner: {
