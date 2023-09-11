@@ -27,6 +27,7 @@ const validationCreateMovie = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),
+<<<<<<< HEAD
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
@@ -36,6 +37,17 @@ const validationCreateMovie = celebrate({
     nameEN: Joi.string().required(),
     thumbnail: Joi.string().required().pattern(REGEX),
     movieId: Joi.number().required(),
+=======
+    duration:Joi.number().required(),
+    year:Joi.string().required(),
+    description:Joi.string().required(),
+    image:Joi.string().required(),
+    trailerLink:Joi.string().required(),
+    nameRU:Joi.string().required(),
+    nameEN:Joi.string().required(),
+    thumbnail:Joi.string().required(),
+    movieId:Joi.number().required(),
+>>>>>>> 9685ea2656b2fb111f363d1dfbcf14501a96924d
   }),
 });
 

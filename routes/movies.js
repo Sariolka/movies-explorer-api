@@ -13,6 +13,10 @@ const {
 moviesRouter.get("/movies", getUserMovies);
 moviesRouter.post("/movies", validationCreateMovie, createUserMovie);
 
+<<<<<<< HEAD
 moviesRouter.delete("/movies/:movieId", validationDeleteMovie, deleteUserMovie);
+=======
+moviesRouter.delete('/movies/:movieId', validationDeleteMovie, deleteUserMovie);
+>>>>>>> 9685ea2656b2fb111f363d1dfbcf14501a96924d
 
 module.exports = moviesRouter;

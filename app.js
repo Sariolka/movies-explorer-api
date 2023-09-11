@@ -15,8 +15,8 @@ const { PORT = 3001, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } = process
 const app = express();
 app.use(express.json());
 app.use(limiter);
-app.use(cors);
 
+app.use(cors);
 app.use(requestLogger);
 
 app.use(helmet());
