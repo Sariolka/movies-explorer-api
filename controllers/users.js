@@ -41,18 +41,18 @@ const createUser = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
-  const { email} = req.body;
-  User.findOne({ email })
-    .select('+password')
- //  User.findUserByCredentials({email, password})
-   .orFail(() => new UnauthorizedError('Пользователь не найден'))
+  const { email, password } = req.body;
+  User.findUserByCredentials(email, password)
     .then((user) => {
+      if (!user) {
+        throw new UnauthorizedError("Пользователь не найден");
+      }
       const token = jwt.sign(
         { _id: user._id },
         NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
         { expiresIn: "7d" }
       );
-   res.status(OK).send({ email: user.email, name: user.name, token });
+      res.status(OK).send({ token });
     })
     .catch(() => {
       throw new UnauthorizedError("Необходима авторизация");
