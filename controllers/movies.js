@@ -12,7 +12,6 @@ const getUserMovies = (req, res, next) => {
 };
 
 const createUserMovie = (req, res, next) => {
-<<<<<<< HEAD
   const {
     country,
     director,
@@ -26,7 +25,7 @@ const createUserMovie = (req, res, next) => {
     thumbnail,
     movieId,
   } = req.body;
-  return Movie.create({
+  Movie.create({
     country,
     director,
     duration,
@@ -40,21 +39,17 @@ const createUserMovie = (req, res, next) => {
     movieId,
     owner: req.user._id,
   })
-=======
-  const { country, director, duration, year, description, image, trailerLink, nameRU, nameEN, thumbnail, movieId } = req.body;
-  Movie.create({ country, director, duration, year, description, image, trailerLink, nameRU, nameEN, thumbnail, movieId, owner: req.user._id })
->>>>>>> 9685ea2656b2fb111f363d1dfbcf14501a96924d
     .then((movie) => res.status(CREATED).send(movie))
     .catch((err) => {
       if (err.name === "ValidationError") {
-        return next(new ValidationError("Данные некорректны"));
+        next(new ValidationError("Данные некорректны"));
       }
-      return next(err);
+      next(err);
     });
 };
 
 const deleteUserMovie = (req, res, next) => {
-  return Movie.findById(req.params.movieId)
+  Movie.findById(req.params.movieId)
     .then((movie) => {
       if (!movie) {
         throw new NotFoundError("Фильм не найден!");
@@ -62,7 +57,7 @@ const deleteUserMovie = (req, res, next) => {
       if (req.user._id !== movie.owner.toString()) {
         throw new ForbiddenError("Нельзя удалить чужой фильм");
       }
-      return Movie.deleteOne().then(() =>
+      Movie.findByIdAndRemove(req.params.movieId).then(() =>
         res.status(OK).send({ message: "Фильм удален." })
       );
     })

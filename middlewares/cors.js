@@ -6,19 +6,9 @@ const allowedCors = [
   'localhost:3000',
   'http://localhost:3000',
   'https://localhost:3000',
-<<<<<<< HEAD
   'https://localhost:3001',
   'http://localhost:3001',
   'localhost:3001',
-  'https://api.sariola.diploma.nomoreparties.co',
-  'http://api.sariola.diploma.nomoreparties.co',
-  'https://sariola.diploma.nomoreparties.co',
-  'http://sariola.diploma.nomoreparties.co',
-=======
-  'localhost:3001',
-  'http://localhost:3001',
-  'https://localhost:3001'
->>>>>>> 9685ea2656b2fb111f363d1dfbcf14501a96924d
 ];
 
 const cors = (req, res, next) => {
