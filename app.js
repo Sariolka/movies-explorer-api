@@ -1,16 +1,16 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const express = require("express");
-const mongoose = require("mongoose");
-const helmet = require("helmet");
-const { errors } = require("celebrate");
-const cors = require("cors");
-const limiter = require("./middlewares/rateLimiter");
-const router = require("./routes");
-const error = require("./middlewares/error");
-const { requestLogger, errorLogger } = require("./middlewares/logger");
+const express = require('express');
+const mongoose = require('mongoose');
+const helmet = require('helmet');
+const { errors } = require('celebrate');
+const cors = require('./middlewares/cors');
+const limiter = require('./middlewares/rateLimiter');
+const router = require('./routes');
+const error = require('./middlewares/error');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3001, DB_URL = "mongodb://localhost:27017/bitfilmsdb" } =
+const { PORT = 3001, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } =
   process.env;
 const app = express();
 app.use(express.json());
@@ -21,16 +21,16 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      "https://sariolka.student.nomoredomains.xyz",
-      "https://api.sariolka.students.nomoredomains.xyz",
-      "http://sariolka.student.nomoredomains.xyz",
-      "http://api.sariolka.students.nomoredomains.xyz",
-      "localhost:3000",
-      "http://localhost:3000",
-      "https://localhost:3000",
-      "https://localhost:3001",
-      "http://localhost:3001",
-      "localhost:3001",
+      'https://sariolka.student.nomoredomains.xyz',
+      'https://api.sariolka.students.nomoredomains.xyz',
+      'http://sariolka.student.nomoredomains.xyz',
+      'http://api.sariolka.students.nomoredomains.xyz',
+      'localhost:3000',
+      'http://localhost:3000',
+      'https://localhost:3000',
+      'https://localhost:3001',
+      'http://localhost:3001',
+      'localhost:3001',
     ],
   })
 );
