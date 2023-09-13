@@ -10,7 +10,7 @@ const router = require('./routes');
 const error = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3001, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } =
+const { PORT = 3000, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } =
   process.env;
 const app = express();
 app.use(express.json());
