@@ -21,10 +21,10 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      'https://sariolka.student.nomoredomains.xyz',
-      'https://api.sariolka.students.nomoredomains.xyz',
-      'http://sariolka.student.nomoredomains.xyz',
-      'http://api.sariolka.students.nomoredomains.xyz',
+      'https://api.sariola.diploma.nomoreparties.co',
+      'http://api.sariola.diploma.nomoreparties.co',
+      'https://sariola.diploma.nomoreparties.co',
+      'http://sariola.diploma.nomoreparties.co',
       'localhost:3000',
       'http://localhost:3000',
       'https://localhost:3000',
