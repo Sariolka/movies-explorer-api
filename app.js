@@ -15,7 +15,23 @@ const { PORT = 3001, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } =
 const app = express();
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: [
+      'https://api.sariola.diploma.nomoreparties.co',
+      'http://api.sariola.diploma.nomoreparties.co',
+      'https://sariola.diploma.nomoreparties.co',
+      'http://sariola.diploma.nomoreparties.co',
+      'localhost:3000',
+      'http://localhost:3000',
+      'https://localhost:3000',
+      'https://localhost:3001',
+      'http://localhost:3001',
+      'localhost:3001',
+    ],
+  })
+);
 app.use(requestLogger);
 
 app.use(helmet());
